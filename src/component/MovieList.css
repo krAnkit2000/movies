@@ -1,0 +1,173 @@
+.movie-list-container {
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+/* 🎬 Movie grid */
+.movie-grid {
+        padding-block-start: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+  justify-items: center;
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+/* 🪩 Movie card */
+.movie-card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 200px;
+  max-height: 18rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: fill;
+}
+
+.movie-card h3 {
+  text-align: center;
+  margin: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* 🎯 Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.pagination button {
+  background-color: #e50914;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #f40612;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* 📱 Responsive Design */
+
+/* 🔹 Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .movie-card {
+    width: 180px;
+  }
+
+  .movie-card img {
+    height: 190px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+}
+
+/* 🔹 Mobile Landscape (480px - 767px) */
+@media (max-width: 767px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .movie-card {
+    width: 160px;
+  }
+
+  .movie-card img {
+    height: 180px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .pagination button {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+
+  .pagination span {
+    font-size: 16px;
+  }
+}
+
+/* 🔹 Small Mobile (max 480px) */
+@media (max-width: 480px) {
+  .movie-grid {
+    margin-block-start: 4.5rem;
+    grid-template-columns: 1fr; /* 🟢 Now one card per row */
+    gap: 15px;
+  }
+
+  .movie-card {
+    width: 100%;
+    height: fit-content;
+    max-width: 350px;
+  }
+
+  .movie-card img {
+    height: 200px;
+    object-fit: fill;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pagination button {
+    width: 120px;
+  }
+}
