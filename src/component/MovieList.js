@@ -2,37 +2,43 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import "./MovieList.css";
-import allMovies from "./data";
 
+// ✅ Import both your data sources
+import baseMovies from "./data";
+import yearMovies from "../component/data/yearsmovies";
+
+// ✅ Merge both data sources into one array
+const allMovies = [...baseMovies, ...yearMovies];
 const MovieList = () => {
   const navigate = useNavigate();
 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("All");
+  const [selectedYear, setSelectedYear] = useState("All");
   const [page, setPage] = useState(1);
 
-  // const filteredMovies = allMovies.filter((movie) => {
-  //   const matchesSearch = movie.title.toLowerCase().includes(searchTerm.toLowerCase());
-  //   const matchesGenre = selectedGenre === "All" || movie.genre === selectedGenre;
-  //   return matchesSearch && matchesGenre;
-  // });
-const filteredMovies = allMovies.filter((movie) => {
-  const matchesSearch = movie.title
-    .toLowerCase()
-    .includes(searchTerm.toLowerCase());
+  // ✅ Filtering logic
+  const filteredMovies = allMovies.filter((movie) => {
+    const matchesSearch = movie.title
+      ?.toLowerCase()
+      .includes(searchTerm.toLowerCase());
 
-  // Split genre string into an array
-  const movieGenres = movie.genre
-    ?.split(",")
-    .map((g) => g.trim().toLowerCase()); // e.g. "Action,Drama" -> ["action", "drama"]
+    // Handle both string ("Action, Drama") and array (["Action", "Drama"]) genres
+    const movieGenres = Array.isArray(movie.genre)
+      ? movie.genre.map((g) => g.toLowerCase())
+      : movie.genre?.split(",").map((g) => g.trim().toLowerCase());
 
-  const matchesGenre =
-    selectedGenre === "All" ||
-    movieGenres.includes(selectedGenre.toLowerCase());
+    const matchesGenre =
+      selectedGenre === "All" ||
+      movieGenres?.includes(selectedGenre.toLowerCase());
 
-  return matchesSearch && matchesGenre;
-});
+    const matchesYear =
+      selectedYear === "All" || movie.year === Number(selectedYear);
 
+    return matchesSearch && matchesGenre && matchesYear;
+  });
+
+  // ✅ Pagination
   const moviesPerPage = 12;
   const indexOfLastMovie = page * moviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
@@ -48,7 +54,7 @@ const filteredMovies = allMovies.filter((movie) => {
 
   useEffect(() => {
     setPage(1);
-  }, [searchTerm, selectedGenre]);
+  }, [searchTerm, selectedGenre, selectedYear]);
 
   return (
     <>
@@ -57,6 +63,8 @@ const filteredMovies = allMovies.filter((movie) => {
         setSearchTerm={setSearchTerm}
         selectedGenre={selectedGenre}
         setSelectedGenre={setSelectedGenre}
+        selectedYear={selectedYear}
+        setSelectedYear={setSelectedYear}
       />
 
       <div className="movie-list-container" style={{ paddingTop: "8rem" }}>
@@ -66,14 +74,28 @@ const filteredMovies = allMovies.filter((movie) => {
               <div
                 className="movie-card"
                 key={index}
-              onClick={() => navigate(`/watch/${encodeURIComponent(movie.title)}`, { state: movie })}
+                onClick={() =>
+                  navigate(`/watch/${encodeURIComponent(movie.title)}`, {
+                    state: movie,
+                  })
+                }
               >
-                <img src={movie.poster} alt={movie.title} />
+                {movie.poster ? (
+                  <img src={movie.poster} alt={movie.title} />
+                ) : (
+                  <div className="no-poster">No Poster</div>
+                )}
                 <h3>{movie.title}</h3>
               </div>
             ))
           ) : (
-            <p style={{ gridColumn: "1 / -1", textAlign: "center", color: "#aaa" }}>
+            <p
+              style={{
+                gridColumn: "1 / -1",
+                textAlign: "center",
+                color: "#aaa",
+              }}
+            >
               No movies found 😢
             </p>
           )}
@@ -84,7 +106,10 @@ const filteredMovies = allMovies.filter((movie) => {
             ← Prev
           </button>
           <span>Page {page}</span>
-          <button onClick={handleNextPage} disabled={indexOfLastMovie >= filteredMovies.length}>
+          <button
+            onClick={handleNextPage}
+            disabled={indexOfLastMovie >= filteredMovies.length}
+          >
             Next →
           </button>
         </div>
