@@ -81,7 +81,7 @@ const MovieList = () => {
                 }
               >
                 {movie.poster ? (
-                  <img src={movie.poster} alt={movie.title} />
+                  <img loading="lazy" src={movie.poster} alt={movie.title} />
                 ) : (
                   <div className="no-poster">No Poster</div>
                 )}
