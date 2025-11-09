@@ -130,20 +130,6 @@ const allMovies = [
     "video": "http://103.145.232.246/Data/movies/Hindi%20dubbed/AKA%20(2023).mp4"
   },
   {
-    "title": "Aadavaallu Meeku Johaarlu ",
-"Year":2022,
-    "genre": "Action",
-    "poster": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/aadavallu-meeku-johaarlu-et00316317-28-02-2022-09-12-30.jpg",
-    "video": "http://103.145.232.246/Data/movies/Hindi%20dubbed/Aadavaallu%20Meeku%20Johaarlu%20%282022%29/Aadavaallu%20Meeku%20Johaarlu.mkv"
-  },
-  {
-    "title": "Aaraattu ",
-"Year":2022,
-    "genre": "Romantic Comedy,Drama,Family​",
-    "poster": "https://via.assets.lol/movie/Aaraattu%20(2022).jpg",
-    "video": "http://103.145.232.246/Data/movies/Hindi%20dubbed/Aaraattu%20(2022).mp4"
-  },
-  {
     "title": "Aavesham ",
 "Year":2024,
     "genre": "Action, Comedy",
