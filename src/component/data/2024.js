@@ -1,18 +1,5 @@
 const Movies2024 = [
-  {
-    "title": "Aayushmati Geeta Matric Pass",
-    "Year": 2024,
-    "genre": "Action",
-    "poster": "https://images.unsplash.com/photo-1700700736019-d394eaa3be2a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1828",
-    "video": "http://103.145.232.246/Data/movies/Hindi%20dubbed/Aayushmati%20Geeta%20Matric%20Pass.mp4"
-  },
-  {
-    "title": "Accident or Conspiracy Godhra",
-    "Year": 2024,
-    "genre": "Action",
-    "poster": "https://images.unsplash.com/photo-1700700736019-d394eaa3be2a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1828",
-    "video": "http://103.145.232.246/Data/movies/Hindi%20dubbed/Accident%20or%20Conspiracy%20Godhra.mp4"
-  },
+  
   {
     "title": "Adbhut",
     "Year": 2024,
