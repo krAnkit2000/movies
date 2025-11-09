@@ -8,7 +8,7 @@ const allMovies = [
   ...movies2021,
   ...movies2022,
   ...movies2023,
-  ...movies2024
+  ...movies2024,
   
 ];
 
