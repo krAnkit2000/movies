@@ -4,11 +4,11 @@ import Navbar from "./Navbar";
 import "./MovieList.css";
 
 // ✅ Import both your data sources
-import baseMovies from "./data";
+import mixMovies from "./data/mixmovies";
 import yearMovies from "../component/data/yearsmovies";
 
 // ✅ Merge both data sources into one array
-const allMovies = [...baseMovies, ...yearMovies];
+const allMovies = [...mixMovies, ...yearMovies];
 const MovieList = () => {
   const navigate = useNavigate();
 
