@@ -25,6 +25,11 @@
   cursor: pointer;
 }
 
+.navbar-left a{
+  color: red ;
+  text-decoration: none;
+}
+
 /* 🔹 Center buttons (Genre Filters) */
 .navbar-center {
   display: flex;
@@ -109,7 +114,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 10px 15px;
+    padding: 9px 12px;
   }
 
   .navbar-logo {
@@ -122,11 +127,11 @@
  margin: 1px 2px 2px -24px;
     justify-content: center;
     width: 100%;
-    gap: 8px;
+    gap: 7px;
   }
 
   .navbar-right {
-
+margin-block-end: 10px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -141,11 +146,10 @@
 
 /* 🔹 Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
-  .navbar {
-    padding: 8x;
-  }
+ 
 
   .navbar-logo {
+        margin-block-start: 2px;
     font-size: 18px;
   }
 

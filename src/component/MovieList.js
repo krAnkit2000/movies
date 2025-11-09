@@ -67,7 +67,7 @@ const MovieList = () => {
         setSelectedYear={setSelectedYear}
       />
 
-      <div className="movie-list-container" style={{ paddingTop: "8rem" }}>
+      <div className="movie-list-container" >
         <div className="movie-grid">
           {currentMovies.length > 0 ? (
             currentMovies.map((movie, index) => (

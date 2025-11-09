@@ -29,7 +29,7 @@ const Navbar = ({
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <h2 className="navbar-logo">🎬 MovieZone</h2>
+        <h2 className="navbar-logo"><a href="..">🎬 MovieZone</a></h2>
       </div>
 
       <div className="navbar-center">

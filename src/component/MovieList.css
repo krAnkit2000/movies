@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+    margin-top: 6rem;
 }
 
 .title {
@@ -16,6 +17,7 @@
 
 /* 🎬 Movie grid */
 .movie-grid {
+
         padding-block-start: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -95,6 +97,7 @@
   .movie-grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 12px;
+    
   }
 
   .movie-card {
@@ -115,6 +118,7 @@
   .movie-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
+       margin-block-start: 6rem;
   }
 
   .movie-card {
@@ -141,10 +145,13 @@
 
 /* 🔹 Small Mobile (max 480px) */
 @media (max-width: 480px) {
+
+
   .movie-grid {
-    margin-block-start: 4.5rem;
-    grid-template-columns: 1fr; /* 🟢 Now one card per row */
+    margin-block-start: 10rem;
+    grid-template-columns: 1fr; 
     gap: 15px;
+    margin-block-start: 6rem;
   }
 
   .movie-card {
